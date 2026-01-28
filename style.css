@@ -1,0 +1,167 @@
+/* ==================== Reset & Base ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background: linear-gradient(135deg, #153677, #4e085f);
+    min-height: 100vh;
+    padding: 10px;
+}
+
+/* ==================== Container ==================== */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.todo-app {
+    width: 100%;
+    max-width: 540px;
+    background: #fff;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+/* العنوان */
+.todo-app h2 {
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.todo-app h2 img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+/* صف الإدخال + الأزرار */
+.row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.row input {
+    flex: 2;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    background: #edeef0;
+}
+
+.row button {
+    flex: 1;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* ألوان مختلفة للأزرار */
+.add-btn { background: #e74c3c; }
+.add-btn:hover { background: #c0392b; }
+.clear-btn { background: #555; }
+.clear-btn:hover { background: #333; }
+
+/* ==================== List ==================== */
+ul#list-container {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+ul#list-container li {
+    background: #f7f7f7;
+    margin-bottom: 10px;
+    padding: 12px 8px 12px 50px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* أيقونة قبل المهمة */
+ul#list-container li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+/* المهمة المكتملة */
+ul li.checked .task-text {
+    text-decoration: line-through;
+    color: #555;
+}
+ul li.checked::before {
+    background-image: url(images/checked.png);
+}
+
+/* زر الحذف */
+li span.delete {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    border-radius: 50%;
+    color: #555;
+    font-size: 20px;
+}
+li span.delete:hover {
+    background: #ddd;
+}
+
+/* تاريخ الإضافة */
+li .date {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+/* Tasks left */
+#tasks-left {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .row input {
+        font-size: 14px;
+        height: 35px;
+    }
+    .row button {
+        font-size: 12px;
+        height: 35px;
+    }
+    li .task-text {
+        font-size: 15px;
+    }
+}
